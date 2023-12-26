@@ -16,10 +16,6 @@ ec: $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: test
-test: ec
-	sh tests/run_tests.sh
-
 .PHONY: clean
 clean:
 	rm -rf $(OBJS) ec *.dSYM

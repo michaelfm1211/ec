@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  // parse the embedded convention header
+  // parse the ec header
   struct ll_cmd cmds_head = {0};
   struct ll_cmd *ptr = &cmds_head;
   char *line = NULL;
@@ -131,6 +131,7 @@ fail:
     ptr = ptr->next;
   }
 end:
+  // reset the environment variables
   for (int i = 0; i < argc - 3; i++) {
     char num[4];
     snprintf(num, 4, "A%d", i);
@@ -145,5 +146,6 @@ end:
   } else {
     unsetenv("SRC");
   }
+
   return retval;
 }
