@@ -52,11 +52,10 @@ int main(int argc, char *argv[]) {
       continue;
     }
 
-    // if its not a continuation and it doesn't have a separator, then its
-    // invalid
+    // if its not a continuation and it doesn't have a separator, then just skip
     char *sep = strchr(line, ':');
     if (!sep)
-      break;
+      continue;
 
     // make a new linked list node on the stack
     struct ll_cmd *cmd = alloca(sizeof(struct ll_cmd));
