@@ -27,12 +27,12 @@ specified arguments, use the environment variables `A0`, `A1`, `A2`, up to a
 maximum of `A99`.
 
 For example:
-```
+```c
 //compile:gcc -Wall -Wextra -Werror -pedantic -O3 $SRC -o $A0
 //debug:gcc -Wall -Wextra -Werror -pedantic -g -O0 -fsanitize=address
 // -fsanitize=undefined $SRC -o $A0
 
-// This is a comment, and not part of the ec header.
+// This is a comment and not part of the ec header.
 
 #include <stdio.h>
 
