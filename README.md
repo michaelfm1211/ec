@@ -15,13 +15,13 @@ Actions/commands are defined in the header by the following format:
 ```
 //commandname:shell to execute
 ```
-Everything than comes before the colon (`:`) is part of the command name and
+Everything that comes before the colon (`:`) is part of the command name and
 everything after is part of the shell command that will executed if the command
 is invoked by the user. There must be no white space between the starting
 pattern (`//` or `##`) and the command name. If there is white space, then the
 line will be interpreted as a continuation from the last command definition.
 
-In order to act on the current file, the environment variable `SRC` is set to
+To act on the current file, the environment variable `SRC` is set to
 the current filename before executing the command's shell code. To use user
 specified arguments, use the environment variables `A0`, `A1`, `A2`, up to a
 maximum of `A99`.
@@ -45,6 +45,14 @@ is a source file for a small C program along with an `ec` header to allow for
 quick compilation. The header specifies two actions/commands, `compile` and
 `debug`. Both actions compile the current file and write an executable to a file
 specified by the user.
+
+Some linters might not like that the comments in the ec header don't have a
+leading space. To stop them from trying to mess up the header, you might need to
+add some configuration. For example, you can stop clang-format (and clangd) from
+complaining by adding this line to your `.clang-format` file:
+```
+CommentPragmas: '^[^ ].*:.*'
+```
 
 ### Running `ec`
 
